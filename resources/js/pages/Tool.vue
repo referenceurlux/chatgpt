@@ -29,7 +29,7 @@
                               {{ __('Question') }}
                             </div>
                             <input type="text" class="w-full form-control form-input form-input-bordered text-center"
-                                   v-model="question" placeholder="{{ __('Type in your question..')"
+                                   v-model="question" :placeholder="__('Type in your question..')"
                                    @input="enableSubmit">
                         </div>
                         <div class="flex justify-center">
