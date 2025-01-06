@@ -38,6 +38,12 @@ class ToolServiceProvider extends ServiceProvider
                 ], 'chatgpt-nova4-migrations');
             }
 
+            if(!class_exists('AddFieldsChatGPTNova4Table')) {
+                $this->publishes([
+                    __DIR__ . '/../database/migrations/add_fields_to_chatgtp_nova4_table.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()) . '_add_fields_to_chatgpt_nova4_table.php'),
+                ], 'chatgpt-nova4-migrations');
+            }
+
             if (!class_exists('ChatGPTNova4')) {
                 $this->publishes([
                     __DIR__ . '/Models/ChatGPTNova4.php' => app_path('Models/ChatGPTNova4.php')
