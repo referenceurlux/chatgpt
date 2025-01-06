@@ -88,7 +88,9 @@ class ChatGPTController extends Controller
 
     public function history()
     {
-        $history = ChatGPTNova4::orderByDesc('id')->paginate();
+        $courtierId = auth('sanctum')->user()->courtier_id;
+        $history = ChatGPTNova4::where('courtier_id', '=', $courtierId)
+            ->orderByDesc('id')->paginate();
 
         return response()->json([
             'history' => $history,
@@ -97,7 +99,9 @@ class ChatGPTController extends Controller
 
     public function view($id)
     {
-        $record = ChatGPTNova4::findOrFail($id);
+        $courtierId = auth('sanctum')->user()->courtier_id;
+        $record = ChatGPTNova4::where('courtier_id', '=', $courtierId)
+        ->findOrFail($id);
 
         return response()->json([
             'record' => $record,
@@ -106,14 +110,19 @@ class ChatGPTController extends Controller
 
     public function delete(NovaRequest $request)
     {
-        $delete = ChatGPTNova4::where('id', $request->id)->delete();
+        $userId = auth('sanctum')->user()->id;
+        $delete = ChatGPTNova4::where('user_id', '=', $userId)
+        ->where('id', $request->id)->delete();
         return response()->json($delete);
     }
 
     public function clearHistory(NovaRequest $request)
     {
-        ChatGPTNova4::truncate();
-        return response()->json(['success' => 'History cleared!']);
+        if(auth('sanctum')->user()->isSuperAdmin()){
+            ChatGPTNova4::truncate();
+            return response()->json(['success' => 'History cleared!']);
+        }
+        return response()->json(['error' => 'You dont have the rights to clear the history!']);
     }
 
 }
