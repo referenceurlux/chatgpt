@@ -1,6 +1,6 @@
 <template>
-    <div class="md:w-full">
-        <div class="mb-2 text-xl text-center">{{ __('Ask ChatGPT') }}</div>
+    <div class="w-full flex flex-col items-center justify-center">
+        <div class="mb-2 text-xl">{{ __('Ask ChatGPT') }}</div>
       <div>
         <div class="text-xs mt-6 mb-8 md:min-h-40">
           <a :href="'/dashboard/chatgpt'"
