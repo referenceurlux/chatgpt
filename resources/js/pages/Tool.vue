@@ -1,7 +1,7 @@
 <template>
     <div class="container mx-auto">
         <div class="w-full flex flex-col items-center justify-center">
-            <div class="mb-2 text-xl">Ask ChatGPT</div>
+            <div class="mb-2 text-xl">{{ __('Ask ChatGPT') }}</div>
             <div>
                 <div class="text-xs mt-6 mb-8 md:min-h-40">
                     <a :href="'/dashboard/chatgpt/view-questions-history'"
@@ -29,7 +29,7 @@
                               {{ __('Question') }}
                             </div>
                             <input type="text" class="w-full form-control form-input form-input-bordered text-center"
-                                   v-model="question" placeholder="Type in your question.."
+                                   v-model="question" placeholder="{{ __('Type in your question..')"
                                    @input="enableSubmit">
                         </div>
                         <div class="flex justify-center">
