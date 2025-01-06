@@ -7,7 +7,7 @@
           {{ __('Ask ChatGPT') }}
         </a>
         <a :href="'/dashboard/chatgpt/view-questions-history'"
-           class="bg-transparent hover:text-gray-500 hover:bg-gray-200 text-blue-700 font-semibold py-1 px-2 border rounded shadow">
+           class="ml-3 bg-transparent hover:text-gray-500 hover:bg-gray-200 text-blue-700 font-semibold py-1 px-2 border rounded shadow">
           {{ __('View History') }}
         </a>
       </div>
