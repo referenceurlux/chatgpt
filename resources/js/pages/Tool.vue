@@ -48,7 +48,7 @@
             </div>
             <div class="w-full md:w-3/5 mb-8">
                 <div class="min-h-[90px] bg-white dark:bg-gray-800 rounded-lg shadow p-4">
-                    <div class="text-left text-md mb-2">Answer</div>
+                    <div class="text-left text-md mb-2">{{ __('Answer') }}</div>
                     <p class="justify-start text-md whitespace-pre-wrap pl-2"> {{ answer.trim() }} </p>
                 </div>
                 <div class="flex mt-2">
