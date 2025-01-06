@@ -1,6 +1,6 @@
 <template>
     <div class="md:w-full">
-        <div class="mb-2 text-xl text-center">Ask ChatGPT</div>
+        <div class="mb-2 text-xl text-center">{{ __('Ask ChatGPT') }}</div>
         <div class="mb-2 text-md flex justify-center" v-if="this.history.length > 0">
             <table class="table-auto w-full mt-6 bg-white dark:bg-gray-800 rounded-lg shadow p-6">
                 <thead>
