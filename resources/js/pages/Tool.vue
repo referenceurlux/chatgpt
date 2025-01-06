@@ -4,28 +4,13 @@
             <div class="mb-2 text-xl">Ask ChatGPT</div>
             <div>
                 <div class="text-xs mt-6 mb-8 md:min-h-40">
-                    <label for="chatgpt_model" class="text-sm">Select Model: </label>
-                    <select v-model="chatgpt_model"
-                            class="bg-transparent hover:text-gray-500 hover:bg-gray-200 text-blue-700 font-semibold py-1 px-2 border rounded shadow mr-3">
-                        <option :value="model" v-for="model in chatgpt_models">
-                            {{ model }}
-                        </option>
-                    </select>
-                    <a :href="'/nova/chatgpt/view-questions-history'"
+                    <a :href="'/dashboard/chatgpt/view-questions-history'"
                        class="bg-transparent hover:text-gray-500 hover:bg-gray-200 text-blue-700 font-semibold py-1 px-2 border rounded shadow">
-                        View History
+                      {{ __('View History') }}
                     </a>
                     <a :href="'#'" @click="clearHistory"
                        class="ml-3 bg-transparent hover:text-gray-500 hover:bg-gray-200 text-blue-700 font-semibold py-1 px-2 border border-blue-500 hover:border-transparent rounded">
-                        Clear History
-                    </a>
-                    <a href="   https://platform.openai.com/account/api-keys" target="_blank"
-                       class="ml-3 bg-transparent hover:text-gray-500 hover:bg-gray-200 text-blue-700 font-semibold py-1 px-2 border border-blue-500 hover:border-transparent rounded">
-                        Get API Key
-                    </a>
-                    <a href="https://github.com/naifalshaye/chatgpt-nova4" target="_blank"
-                       class="ml-3 bg-transparent hover:text-gray-500 hover:bg-gray-200 text-blue-700 font-semibold py-1 px-2 border border-blue-500 hover:border-transparent rounded">
-                        Doc
+                      {{ __('Clear History') }}
                     </a>
                 </div>
             </div>
@@ -33,7 +18,7 @@
                 {{ this.error }}
             </div>
             <div v-if="this.history_cleared" class="text-green-500 font-bold mt-4 mb-4 flex justify-center text-center">
-                History cleared!
+              {{ __('History cleared!') }}
             </div>
             <div class="w-full md:w-3/5 mb-8">
                 <form @submit.prevent="submitForm" ref="form" method="post" class="space-y-8">
@@ -41,8 +26,8 @@
                         <div class="py-4 md:py-6">
                             <div class="text-left text-md mb-2">
                                 <span class="text-red-600">*</span>
-
-                                Question</div>
+                              {{ __('Question') }}
+                            </div>
                             <input type="text" class="w-full form-control form-input form-input-bordered text-center"
                                    v-model="question" placeholder="Type in your question.."
                                    @input="enableSubmit">
@@ -51,11 +36,11 @@
                             <button type="button"
                                     class="appearance-none bg-transparent font-bold text-gray-400 hover:text-gray-300 active:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400 dark:active:text-gray-600 dark:hover:bg-gray-800 cursor-pointer rounded text-sm font-bold focus:outline-none focus:ring ring-primary-200 dark:ring-gray-600 inline-flex items-center justify-center h-9 px-3 appearance-none bg-transparent font-bold text-gray-400 hover:text-gray-300 active:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400 dark:active:text-gray-600 dark:hover:bg-gray-800 mr-1"
                                     @click="cancel()">
-                                Clear
+                              {{ __('Clear') }}
                             </button>
                             <button type="submit" :disabled='this.submitIsDisabled'
                                     class="bg-primary-500 hover:bg-primary-400 text-white dark:text-gray-900 cursor-pointer rounded text-sm font-bold focus:outline-none focus:ring ring-primary-200 dark:ring-gray-600 h-8 px-4 shadow">
-                                <span>Send</span>
+                                <span>{{ __('Send') }}</span>
                             </button>
                         </div>
                     </div>
@@ -68,7 +53,7 @@
                 </div>
                 <div class="flex mt-2">
                     <div class="w-1/2">
-                        Tokens: {{ total_tokens ? total_tokens : 0 }}
+                      {{ __('Tokens:') }} {{ total_tokens ? total_tokens : 0 }}
                     </div>
                     <div class="w-4/5">
                         <div class="flex justify-end">
@@ -111,7 +96,7 @@ export default {
     data() {
         return {
             chatgpt_models: [],
-            chatgpt_model: 'gpt-3.5-turbo',
+            chatgpt_model: 'gpt-4o',
             question: '',
             answer: '',
             total_tokens: '',

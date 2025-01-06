@@ -6,22 +6,22 @@
                 <thead>
                 <tr class="text-xs">
                     <th class="border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 px-4 py-3">
-                        ID
+                      {{ __('ID') }}
                     </th>
                     <th class="border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 px-4 py-3">
-                        Question
+                      {{ __('Question') }}
                     </th>
                     <th class="border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 px-4 py-3">
-                        Date
+                      {{ __('Date') }}
                     </th>
                     <th class="border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 px-4 py-3">
-                        Tokens
+                      {{ __('Tokens') }}
                     </th>
                     <th class="border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 px-4 py-3">
-                        View
+                      {{ __('View') }}
                     </th>
                     <th class="border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 px-4 py-3">
-                        Delete
+                      {{ __('Delete') }}
                     </th>
                 </tr>
                 </thead>
@@ -41,7 +41,7 @@
                         {{ record.total_tokens }}
                     </td>
                     <td class="border border-gray-300 dark:border-gray-700 px-4 py-1 ">
-                        <a :href="'/nova/chatgpt/view-questions-history/view/'+record.id">
+                        <a :href="'/dashboard/chatgpt/view-questions-history/view/'+record.id">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto" fill="none" viewBox="0 0 24 24"
                                  stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -63,7 +63,7 @@
             </table>
         </div>
         <div v-show="this.history.length === 0" class="text-center mt-3 text-md text-red-600">
-            No history records found!
+          {{ __('No history records found!') }}
         </div>
     </div>
 </template>

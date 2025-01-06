@@ -1,10 +1,10 @@
 <template>
     <div class="w-full flex flex-col items-center justify-center">
-        <div class="mb-2 text-xl">Ask ChatGPT</div>
+        <div class="mb-2 text-xl">{{ __('Ask ChatGPT') }}</div>
         <div class="w-full max-w-4xl bg-white dark:bg-gray-800 dark:text-gray-400 rounded-lg shadow p-6">
             <div class="px-6 pt-4 pb-2">
                 <span
-                    class=" py-1 text-sm font-semibold mr-2 mb-2 ">Date: {{
+                    class=" py-1 text-sm font-semibold mr-2 mb-2 ">{{ __('Date:') }} {{
                         this.formatDate(record.created_at)
                     }}</span>
             </div>
