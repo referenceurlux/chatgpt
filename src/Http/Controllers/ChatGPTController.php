@@ -118,11 +118,13 @@ class ChatGPTController extends Controller
 
     public function clearHistory(NovaRequest $request)
     {
-        if(auth('sanctum')->user()->isSuperAdmin()){
+        if(auth('sanctum')->user()->isSuperAdmin()) {
             ChatGPTNova4::truncate();
-            return response()->json(['success' => 'History cleared!']);
+        } else {
+            $userId = auth('sanctum')->user()->id;
+            ChatGPTNova4::where('user_id', '=', $userId)
+                ->delete();
         }
-        return response()->json(['error' => 'You dont have the rights to clear the history!']);
+        return response()->json(['success' => 'History cleared!']);
     }
-
 }
