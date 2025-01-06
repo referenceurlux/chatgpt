@@ -9,7 +9,7 @@
           </a>
         </div>
       </div>
-        <div class="mb-2 text-md flex justify-center" v-if="this.history.length > 0">
+        <div class="mb-2 text-md flex justify-center w-full" v-if="this.history.length > 0">
             <table class="table-auto w-full mt-6 bg-white dark:bg-gray-800 rounded-lg shadow p-6">
                 <thead>
                 <tr class="text-xs">
