@@ -1,6 +1,14 @@
 <template>
     <div class="md:w-full">
         <div class="mb-2 text-xl text-center">{{ __('Ask ChatGPT') }}</div>
+      <div>
+        <div class="text-xs mt-6 mb-8 md:min-h-40">
+          <a :href="'/dashboard/chatgpt'"
+             class="bg-transparent hover:text-gray-500 hover:bg-gray-200 text-blue-700 font-semibold py-1 px-2 border rounded shadow">
+            {{ __('Ask ChatGPT') }}
+          </a>
+        </div>
+      </div>
         <div class="mb-2 text-md flex justify-center" v-if="this.history.length > 0">
             <table class="table-auto w-full mt-6 bg-white dark:bg-gray-800 rounded-lg shadow p-6">
                 <thead>

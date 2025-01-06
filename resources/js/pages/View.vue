@@ -1,6 +1,16 @@
 <template>
     <div class="w-full flex flex-col items-center justify-center">
         <div class="mb-2 text-xl">{{ __('Ask ChatGPT') }}</div>
+      <div class="text-xs mt-6 mb-8 md:min-h-40">
+        <a :href="'/dashboard/chatgpt'"
+           class="bg-transparent hover:text-gray-500 hover:bg-gray-200 text-blue-700 font-semibold py-1 px-2 border rounded shadow">
+          {{ __('Ask ChatGPT') }}
+        </a>
+        <a :href="'/dashboard/chatgpt/view-questions-history'"
+           class="bg-transparent hover:text-gray-500 hover:bg-gray-200 text-blue-700 font-semibold py-1 px-2 border rounded shadow">
+          {{ __('View History') }}
+        </a>
+      </div>
         <div class="w-full max-w-4xl bg-white dark:bg-gray-800 dark:text-gray-400 rounded-lg shadow p-6">
             <div class="px-6 pt-4 pb-2">
                 <span
