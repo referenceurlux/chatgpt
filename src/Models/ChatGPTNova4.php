@@ -11,5 +11,7 @@ class ChatGPTNova4 extends Eloquent
         'question',
         'answer',
         'total_tokens',
+        'user_id',
+        'courtier_id'
     ];
 }

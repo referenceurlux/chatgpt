@@ -53,6 +53,8 @@ class ChatGPTController extends Controller
                     'question' => $request->question,
                     'answer' => $answer,
                     'total_tokens' => (int)$total_tokens,
+                    'user_id' => $request->user()->id,
+                    'courtier_id' => $request->user()->courtier_id,
                 ]);
 
                 // Return the response
